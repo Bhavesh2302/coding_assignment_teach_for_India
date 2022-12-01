@@ -19,35 +19,39 @@ volunteerController.get(
   }
 );
 
-volunteerController.post("/add",authentication, validateVolunteer, async (req, res) => {
-  try {
-    const {
-      name,
-      email,
-      mobileNumber,
-      address,
-      location,
-      spokenLanguages,
-      availability,
-      userId
-    } = req.body;
-    const volunteer = new VolunteerModel({
-      name,
-      email,
-      mobileNumber,
-      address,
-      location,
-      spokenLanguages,
-      availability,
-      userId
-    });
-    console.log(volunteer);
-    await volunteer.save()
-    res.status(201).send({ msg: "volunteer added successfully" });
-  } catch (error) {
-    res.status(401).send({ msg: "something went wrong please try again" });
+volunteerController.post(
+  "/add",
+  authentication,
+  validateVolunteer,
+  async (req, res) => {
+    try {
+      const {
+        name,
+        email,
+        mobileNumber,
+        address,
+        location,
+        spokenLanguages,
+        availability,
+        userId,
+      } = req.body;
+      const volunteer = new VolunteerModel({
+        name,
+        email,
+        mobileNumber,
+        address,
+        location,
+        spokenLanguages,
+        availability,
+        userId,
+      });
+      await volunteer.save();
+      res.status(201).send({ msg: "volunteer added successfully" });
+    } catch (error) {
+      res.status(401).send({ msg: "something went wrong please try again" });
+    }
   }
-});
+);
 
 module.exports = {
   volunteerController,
