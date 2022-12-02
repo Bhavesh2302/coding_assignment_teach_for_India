@@ -74,7 +74,7 @@ const VolunteerForm = () => {
       availability: availability,
     };
 
-    fetch("http://localhost:7500/volunteer/add", {
+    fetch("https://teachforindiaserver-production.up.railway.app/volunteer/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,9 +86,9 @@ const VolunteerForm = () => {
       .then((res) => {
         if (res.msg === "volunteer added successfully") {
           addVolunteerToast({
-            title: "signup Success",
+            title: "volunteer added successfull",
             position: "top",
-            description: "you are successfully Signed up",
+            description: "you are successfully added as volunteer",
             status: "success",
             duration: 2000,
             isClosable: true,

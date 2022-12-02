@@ -19,7 +19,7 @@ const VolunteerList = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:7500/volunteer/get", {
+    fetch("https://teachforindiaserver-production.up.railway.app/volunteer/get", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

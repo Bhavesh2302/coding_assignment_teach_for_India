@@ -26,7 +26,7 @@ const Login = () => {
       password,
     };
 
-    fetch("http://localhost:7500/login", {
+    fetch("https://teachforindiaserver-production.up.railway.app/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
